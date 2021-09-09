@@ -33,5 +33,6 @@
 .logout-link {
   margin-left: auto;
   text-decoration: underline;
+  font-size: 16px;
   margin: 10px;
 }
