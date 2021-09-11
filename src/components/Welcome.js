@@ -1,4 +1,5 @@
 import React from "react";
+import "./Welcome.css";
 
 class Welcome extends React.Component {
   constructor(props) {
@@ -7,7 +8,16 @@ class Welcome extends React.Component {
   }
 
   render() {
-    return <div>WELCOME</div>;
+    return (
+      <div>
+        <form class="login-container">
+          <h2>Log In</h2>
+          <input placeholder="email" type="text" />
+          <input placeholder="password" type="password" />
+          <button>Log In</button>
+        </form>
+      </div>
+    );
   }
 }
 
