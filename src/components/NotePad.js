@@ -13,7 +13,9 @@ class NotePad extends React.Component {
   }
 
   handleChange(event) {
-    console.log("handleChange ", event.target.value);
+    this.setState({
+      value: event.target.value,
+    });
   }
 
   render() {
