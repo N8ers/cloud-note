@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement } from "./actions";
 
 import "./App.css";
 
@@ -9,6 +10,8 @@ import Welcome from "./components/Welcome.js";
 function App() {
   const counter = useSelector((state) => state.counter);
   const isLogged = useSelector((state) => state.isLogged);
+  const dispatch = useDispatch();
+
   return (
     <Router>
       <div className="App">
@@ -28,11 +31,13 @@ function App() {
 
           <Route path="/">
             <h1>Counter: {counter}</h1>
-            <button>+</button>
-            <button>-</button>
+            <button onClick={() => dispatch(increment())}>+</button>
+            <button onClick={() => dispatch(increment(5))}>+5</button>
+            <button onClick={() => dispatch(decrement())}>-</button>
+            <button onClick={() => dispatch(decrement(5))}>-5</button>
 
             <h1>isLogged: </h1>
-            {isLogged ? <div>yes</div> : <h1>no</h1>}
+            {isLogged ? <div>yes</div> : <div>no</div>}
             <NotePad />
           </Route>
         </Switch>
