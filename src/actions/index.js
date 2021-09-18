@@ -11,3 +11,10 @@ export const decrement = (incremnter) => {
     payload: incremnter,
   };
 };
+
+export const updateNote = (value) => {
+  return {
+    type: "UPDATE_NOTE",
+    payload: value,
+  };
+};

@@ -1,6 +1,8 @@
 import React from "react";
 import "./NotePad.css";
 
+// NATHAN: I think we need a REACT HOOK to handle redux state here
+
 class NotePad extends React.Component {
   constructor(props) {
     super(props);
