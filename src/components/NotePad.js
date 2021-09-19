@@ -1,35 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NotePad.css";
 
-// NATHAN: I think we need a REACT HOOK to handle redux state here
+function NotePad() {
+  // example
+  // const [currentStateValue, functionToUpdateState] = useState(initialState)
 
-class NotePad extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value:
-        "I'm baby pork belly enamel pin glossier tote bag. Farm-to-table skateboard cray sustainable quinoa austin viral hashtag. Lo-fi knausgaard austin, intelligentsia sriracha skateboard ramps schlitz wayfarers wolf dreamcatcher single-origin coffee. DIY butcher helvetica,seitan schlitz chambray woke fixie cardigan freegan. Try-hard post-ironic listicle palo santo narwhal, intelligentsia lyft pok pok af",
-    };
+  const lorem =
+    "I'm baby four dollar toast vaporware sartorial coloring book organic. Banjo yuccie post-ironic tumeric. Forage kickstarter echo park, schlitz bicycle rights humblebrag keffiyeh live-edge kombucha hoodie raw denim poutine pug knausgaard food truck. Typewriter cloud bread austin gluten-free VHS actually PBR&B live-edge. Roof party austin edison bulb banh mi williamsburg chia biodiesel authentic. Church-key lyft distillery artisan migas vaporware XOXO mustache. Photo booth kitsch cardigan fanny pack, gluten-free flexitarian microdosing etsy YOLO selvage.";
+  const [note, updateNote] = useState(lorem);
 
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({
-      value: event.target.value,
-    });
-  }
-
-  render() {
-    return (
-      <div className="NotePad">
-        <textarea
-          value={this.state.value}
-          onChange={this.handleChange}
-        ></textarea>
-      </div>
-    );
-  }
+  return (
+    <div className="NotePad">
+      <textarea
+        value={note}
+        onChange={(event) => updateNote(updateNote(event.target.value))}
+      ></textarea>
+    </div>
+  );
 }
 
 export default NotePad;
