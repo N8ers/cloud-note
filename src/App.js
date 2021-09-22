@@ -2,8 +2,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import "./App.css";
 
-import NotePad from "./components/NotePad.js";
-import Welcome from "./components/Welcome.js";
+import NotePad from "./components/NotePad/NotePad.js";
+import Welcome from "./components/Welcome/Welcome.js";
 import Counter from "./features/counter/Counter.js";
 
 function App() {
