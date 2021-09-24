@@ -4,7 +4,6 @@ import "./App.css";
 
 import NotePad from "./components/NotePad/NotePad.js";
 import Welcome from "./components/Welcome/Welcome.js";
-import Counter from "./features/counter/Counter.js";
 
 function App() {
   // const isLogged = useSelector((state) => state.isLogged);
@@ -27,7 +26,6 @@ function App() {
           </Route>
 
           <Route path="/">
-            <Counter />
             {/* <h1>isLogged: </h1>
             {isLogged ? <div>yes</div> : <div>no</div>} */}
             <NotePad />
