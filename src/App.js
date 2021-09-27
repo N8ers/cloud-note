@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import "./App.css";
 
-import NotePad from "./components/NotePad/NotePad.js";
+import Notes from "./components/Notes/Notes.js";
 import Welcome from "./components/Welcome/Welcome.js";
 
 function App() {
@@ -28,7 +28,8 @@ function App() {
           <Route path="/">
             {/* <h1>isLogged: </h1>
             {isLogged ? <div>yes</div> : <div>no</div>} */}
-            <NotePad />
+            {/* <NotePad /> */}
+            <Notes />
           </Route>
         </Switch>
       </div>
