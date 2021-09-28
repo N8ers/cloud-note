@@ -7,9 +7,9 @@ import NotePad from "../NotePad/NotePad.js";
 
 function Notes() {
   return (
-    <div className="Notes">
-      <NoteList />
-      <NotePad />
+    <div className="notes-container">
+      <NoteList className="notes-list" />
+      <NotePad className="note-pad" />
     </div>
   );
 }

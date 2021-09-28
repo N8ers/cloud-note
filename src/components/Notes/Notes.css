@@ -1,0 +1,13 @@
+.notes-container {
+  display: grid;
+  grid-template-columns: 250px 75%;
+  grid-template-rows: auto;
+  justify-content: center;
+}
+
+.notes-list {
+  justify-self: right;
+}
+
+.note-pad {
+}
