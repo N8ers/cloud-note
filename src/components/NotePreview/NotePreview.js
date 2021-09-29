@@ -2,11 +2,11 @@ import React from "react";
 
 import "./NotePreview.css";
 
-function NotePreview() {
+function NotePreview(props) {
   return (
     <div className="NotePreview">
-      <h1>I am Note Title</h1>
-      <p>I am a note body that gets truncated...</p>
+      <h1>{props.title}</h1>
+      <p>{props.body}</p>
     </div>
   );
 }
