@@ -5,9 +5,18 @@ import NotePreview from "../NotePreview/NotePreview.js";
 
 function NoteList() {
   const notes = [
-    { title: "note 1", body: "I am a note body that gets truncated..." },
-    { title: "note 2", body: "I am a note body that gets truncated..." },
-    { title: "note 3", body: "I am a note body that gets truncated..." },
+    {
+      title: "note 1",
+      body: "I am a note body that gets truncated, or at least hopefully!",
+    },
+    {
+      title: "note 2",
+      body: "I am a note body that gets truncated, or at least hopefully!",
+    },
+    {
+      title: "note 3",
+      body: "I am a note body that gets truncated, or at least hopefully!",
+    },
   ];
 
   return (
