@@ -11,6 +11,7 @@ function NotePad() {
 
   return (
     <div className="NotePad">
+      <input value="I am the Note Title" />
       <textarea
         value={note}
         onChange={(event) => dispatch(updateNote(event.target.value))}
