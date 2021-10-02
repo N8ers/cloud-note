@@ -7,9 +7,14 @@ function NotePreview(props) {
     return text.substring(0, 36) + "...";
   }
 
+  function newNoteSelected() {
+    // this should probably change a state value somewhere
+    console.log(`id ${props.id} was selected`);
+  }
+
   return (
-    <div className="NotePreview">
-      <h1>{props.title}</h1>
+    <div className="NotePreview" onClick={newNoteSelected}>
+      <div>{props.title}</div>
       <p>{truncateText(props.body)}</p>
     </div>
   );
