@@ -27,9 +27,13 @@ export const notesSlice = createSlice({
     selectedNoteId: initialState.selectedNoteId,
     notes: initialState.notes,
   },
-  reducers: {},
+  reducers: {
+    updateSelectedNoteId: (state, action) => {
+      state.selectedNoteId = action.payload;
+    },
+  },
 });
 
-export const {} = notesSlice.actions;
+export const { updateSelectedNoteId } = notesSlice.actions;
 
 export default notesSlice.reducer;

@@ -2,14 +2,19 @@ import React from "react";
 
 import "./NotePreview.css";
 
+import { useDispatch } from "react-redux";
+
+import { updateSelectedNoteId } from "../Notes/notesSlice";
+
 function NotePreview(props) {
+  const dispatch = useDispatch();
+
   function truncateText(text) {
     return text.substring(0, 36) + "...";
   }
 
   function newNoteSelected() {
-    // this should probably change a state value somewhere
-    console.log(`id ${props.id} was selected`);
+    dispatch(updateSelectedNoteId(props.id));
   }
 
   return (
