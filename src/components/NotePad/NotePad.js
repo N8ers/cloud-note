@@ -1,25 +1,36 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { updateNoteBody, updateNoteTitle } from "./notePadSlice";
+import { updateNote } from "../Notes/notesSlice";
 
 import "./NotePad.css";
 
-function NotePad() {
-  const note = useSelector((state) => state.notePad.value);
-  const title = useSelector((state) => state.notePad.title);
+function NotePad(props) {
   const dispatch = useDispatch();
 
   return (
     <div className="NotePad">
-      <input
-        value={title}
-        onChange={(event) => dispatch(updateNoteTitle(event.target.value))}
-      />
-      <textarea
-        value={note}
-        onChange={(event) => dispatch(updateNoteBody(event.target.value))}
-      ></textarea>
+      {props?.selectedNote?.id &&
+        props?.selectedNote?.title &&
+        props?.selectedNote?.body && (
+          <div>
+            <input
+              value={props.selectedNote.title}
+              onChange={(event) =>
+                dispatch(
+                  updateNote({
+                    value: event.target.value,
+                    id: props.selectedNote.id,
+                  })
+                )
+              }
+            />
+            <textarea
+              value={props.selectedNote.body}
+              onChange={(event) => dispatch(updateNote(event.target.value))}
+            ></textarea>
+          </div>
+        )}
     </div>
   );
 }

@@ -31,9 +31,12 @@ export const notesSlice = createSlice({
     updateSelectedNoteId: (state, action) => {
       state.selectedNoteId = action.payload;
     },
+    updateNote: (state, action) => {
+      console.log("reducer: ", action);
+    },
   },
 });
 
-export const { updateSelectedNoteId } = notesSlice.actions;
+export const { updateSelectedNoteId, updateNote } = notesSlice.actions;
 
 export default notesSlice.reducer;
