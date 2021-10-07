@@ -7,30 +7,39 @@ import "./NotePad.css";
 
 function NotePad(props) {
   const dispatch = useDispatch();
+  const renderNote =
+    props?.selectedNote?.id &&
+    props?.selectedNote?.title &&
+    props?.selectedNote?.body;
 
   return (
     <div className="NotePad">
-      {props?.selectedNote?.id &&
-        props?.selectedNote?.title &&
-        props?.selectedNote?.body && (
-          <div>
-            <input
-              value={props.selectedNote.title}
-              onChange={(event) =>
-                dispatch(
-                  updateNote({
-                    value: event.target.value,
-                    id: props.selectedNote.id,
-                  })
-                )
-              }
-            />
-            <textarea
-              value={props.selectedNote.body}
-              onChange={(event) => dispatch(updateNote(event.target.value))}
-            ></textarea>
-          </div>
-        )}
+      {renderNote && (
+        <div>
+          <input
+            value={props.selectedNote.title}
+            onChange={(event) =>
+              dispatch(
+                updateNote({
+                  title: event.target.value,
+                  id: props.selectedNote.id,
+                })
+              )
+            }
+          />
+          <textarea
+            value={props.selectedNote.body}
+            onChange={(event) =>
+              dispatch(
+                updateNote({
+                  body: event.target.value,
+                  id: props.selectedNote.id,
+                })
+              )
+            }
+          ></textarea>
+        </div>
+      )}
     </div>
   );
 }

@@ -32,7 +32,14 @@ export const notesSlice = createSlice({
       state.selectedNoteId = action.payload;
     },
     updateNote: (state, action) => {
-      console.log("reducer: ", action);
+      const fieldToChange = action.payload.title ? "title" : "body";
+
+      state.notes.map((note) => {
+        if (note.id === action.payload.id) {
+          note[fieldToChange] = action.payload[fieldToChange];
+        }
+        return note;
+      });
     },
   },
 });
