@@ -10,6 +10,17 @@ function Notes() {
   const { notes, selectedNoteId } = useSelector((state) => state.notes);
 
   const selectedNote = () => {
+    if (!notes.length) {
+      return;
+    }
+
+    if (!selectedNoteId) {
+      // refactor default to be latest timestamp when we add that.
+      let notesCopy = [...notes];
+      let notesSortedById = notesCopy.sort((a, b) => a.id - b.id);
+      return notesSortedById[0];
+    }
+
     let filteredNotes = notes.filter((note) => note.id === selectedNoteId);
     if (filteredNotes.length) {
       return filteredNotes[0];
