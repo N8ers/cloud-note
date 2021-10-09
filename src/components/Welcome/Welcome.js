@@ -1,31 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Welcome.css";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { updateEmail, updatePassword } from "./welcomeSlice";
+import { attemptLogin } from "./welcomeSlice";
 
 function Welcome() {
-  const { email, password } = useSelector((state) => state.welcome);
   const dispatch = useDispatch();
+
+  const [email, setEmail] = useState("tsuki@meow.mail");
+  const [password, setPassword] = useState("pstpstpstpst");
 
   return (
     <div>
-      <form className="login-container">
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          dispatch(attemptLogin({ email, password }));
+        }}
+        className="login-container"
+      >
         <h2>Log In</h2>
         <input
           value={email}
-          onChange={(event) => dispatch(updateEmail(event.target.value))}
+          onChange={(event) => setEmail(event.target.value)}
           placeholder="email"
           type="text"
         />
         <input
           value={password}
-          onChange={(event) => dispatch(updatePassword(event.target.value))}
+          onChange={(event) => setPassword(event.target.value)}
           placeholder="password"
           type="password"
         />
-        <button>Log In</button>
+        <button type="submit">Log In</button>
       </form>
     </div>
   );

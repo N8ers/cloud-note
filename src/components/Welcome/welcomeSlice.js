@@ -3,18 +3,22 @@ import { createSlice } from "@reduxjs/toolkit";
 export const welcomeSlice = createSlice({
   name: "welcome",
   initialState: {
-    email: "tsuki@mewo.mail",
-    password: "pstpstpstpst",
+    // email: "tsuki@meow.mail",
+    // password: "pstpstpstpst",
   },
   reducers: {
-    updateEmail: (state, action) => {
-      state.email = action.payload;
+    attemptLogin: (state, action) => {
+      console.log("ACTION: ", action);
     },
-    updatePassword: (state, action) => {
-      state.password = action.payload;
-    },
+    // updateEmail: (state, action) => {
+    //   state.email = action.payload;
+    // },
+    // updatePassword: (state, action) => {
+    //   state.password = action.payload;
+    // },
   },
 });
 
-export const { updateEmail, updatePassword } = welcomeSlice.actions;
+export const { attemptLogin, updateEmail, updatePassword } =
+  welcomeSlice.actions;
 export default welcomeSlice.reducer;
