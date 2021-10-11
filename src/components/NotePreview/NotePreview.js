@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import "./NotePreview.css";
 
@@ -9,9 +9,14 @@ import { updateSelectedNoteId } from "../Notes/notesSlice";
 function NotePreview(props) {
   const dispatch = useDispatch();
 
-  function truncateText(text) {
-    return text.substring(0, 36) + "...";
-  }
+  const [trucatedText, setTruncatedText] = useState("");
+  useEffect(() => {
+    let updatedBody = props.body;
+    if (props.body.length > 36) {
+      updatedBody = props.body.substring(0, 36) + "...";
+    }
+    setTruncatedText(updatedBody);
+  }, [props.body]);
 
   function newNoteSelected() {
     dispatch(updateSelectedNoteId(props.id));
@@ -20,7 +25,7 @@ function NotePreview(props) {
   return (
     <div className="NotePreview" onClick={newNoteSelected}>
       <div>{props.title}</div>
-      <p>{truncateText(props.body)}</p>
+      <p>{trucatedText}</p>
     </div>
   );
 }
