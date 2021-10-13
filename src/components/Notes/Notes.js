@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 import "./Notes.css";
 
@@ -7,6 +8,7 @@ import NoteList from "../NoteList/NoteList.js";
 import NotePad from "../NotePad/NotePad.js";
 
 function Notes() {
+  const { id } = useParams();
   const { notes, selectedNoteId } = useSelector((state) => state.notes);
 
   const selectedNote = () => {
@@ -31,6 +33,9 @@ function Notes() {
     <div className="notes-container">
       <NoteList className="notes-list" notes={notes} />
       <NotePad className="note-pad" selectedNote={selectedNote()} />
+      <div>
+        <h1>ID: {id ? id : "No ID"}</h1>
+      </div>
     </div>
   );
 }

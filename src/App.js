@@ -12,10 +12,10 @@ function App() {
     <Router>
       <div className="App">
         <nav className="App-header">
-          <Link className="title link" to="/">
+          <Link to="/" className="title link">
             <span>CloudNote</span>
           </Link>
-          <Link className="link logout-link" to="/welcome">
+          <Link to="/welcome" className="link logout-link">
             <span>logout</span>
           </Link>
         </nav>
@@ -25,10 +25,7 @@ function App() {
             <Welcome />
           </Route>
 
-          <Route path="/">
-            {/* <h1>isLogged: </h1>
-            {isLogged ? <div>yes</div> : <div>no</div>} */}
-            {/* <NotePad /> */}
+          <Route path="/:id?">
             <Notes />
           </Route>
         </Switch>
