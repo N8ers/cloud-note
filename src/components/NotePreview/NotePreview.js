@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import "./NotePreview.css";
 
@@ -19,14 +20,19 @@ function NotePreview(props) {
   }, [props.body]);
 
   function newNoteSelected() {
+    // We might be able to get rid of this (here and in state) if router handles it
     dispatch(updateSelectedNoteId(props.id));
   }
 
   return (
-    <div className="NotePreview" onClick={newNoteSelected}>
+    <Link
+      to={`/notes/${props.id}`}
+      className="NotePreview"
+      onClick={newNoteSelected}
+    >
       <div>{props.title}</div>
       <p>{trucatedText}</p>
-    </div>
+    </Link>
   );
 }
 
