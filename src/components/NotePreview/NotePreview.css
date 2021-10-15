@@ -1,6 +1,10 @@
 .NotePreview {
   border-bottom: 1px solid white;
-  color: white;
   text-align: left;
   padding: 5px;
+}
+
+.link-container {
+  text-decoration: none;
+  color: white;
 }

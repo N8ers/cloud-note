@@ -5,8 +5,6 @@ import "./NotePreview.css";
 
 import { useDispatch } from "react-redux";
 
-import { updateSelectedNoteId } from "../Notes/notesSlice";
-
 function NotePreview(props) {
   const dispatch = useDispatch();
 
@@ -19,20 +17,13 @@ function NotePreview(props) {
     setTruncatedText(updatedBody);
   }, [props.body]);
 
-  function newNoteSelected() {
-    // We might be able to get rid of this (here and in state) if router handles it
-    dispatch(updateSelectedNoteId(props.id));
-  }
-
   return (
-    <Link
-      to={`/notes/${props.id}`}
-      className="NotePreview"
-      onClick={newNoteSelected}
-    >
-      <div>{props.title}</div>
-      <p>{trucatedText}</p>
-    </Link>
+    <div className="NotePreview">
+      <Link to={`/${props.id}`} className="link-container">
+        <div>{props.title}</div>
+        <p>{trucatedText}</p>
+      </Link>
+    </div>
   );
 }
 
