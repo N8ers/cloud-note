@@ -6,8 +6,6 @@ import Notes from "./components/Notes/Notes.js";
 import Welcome from "./components/Welcome/Welcome.js";
 
 function App() {
-  // const isLogged = useSelector((state) => state.isLogged);
-
   return (
     <Router>
       <div className="App">

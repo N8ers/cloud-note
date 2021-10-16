@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  selectedNoteId: null,
   notes: [
     {
       id: 13,
@@ -29,13 +28,9 @@ const initialState = {
 export const notesSlice = createSlice({
   name: "notes",
   initialState: {
-    selectedNoteId: initialState.selectedNoteId,
     notes: initialState.notes,
   },
   reducers: {
-    updateSelectedNoteId: (state, action) => {
-      state.selectedNoteId = action.payload;
-    },
     updateNote: (state, action) => {
       const fieldToChange = action.payload.title ? "title" : "body";
 
@@ -49,6 +44,6 @@ export const notesSlice = createSlice({
   },
 });
 
-export const { updateSelectedNoteId, updateNote } = notesSlice.actions;
+export const { updateNote } = notesSlice.actions;
 
 export default notesSlice.reducer;

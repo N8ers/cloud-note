@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./NotePreview.css";
 
-import { useDispatch } from "react-redux";
-
 function NotePreview(props) {
-  const dispatch = useDispatch();
-
   const [trucatedText, setTruncatedText] = useState("");
   useEffect(() => {
     let updatedBody = props.body;

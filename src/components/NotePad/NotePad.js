@@ -1,5 +1,7 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { useParams } from "react-router-dom";
 
 import { updateNote } from "../Notes/notesSlice";
 
@@ -7,17 +9,18 @@ import "./NotePad.css";
 
 function NotePad(props) {
   const dispatch = useDispatch();
-  const renderNote =
-    props?.selectedNote?.id &&
-    props?.selectedNote?.title &&
-    props?.selectedNote?.body;
+  const { id } = useParams();
+
+  const note = useSelector((state) =>
+    state.notes.notes.find((note) => note.id === parseInt(id))
+  );
 
   return (
     <div className="NotePad">
-      {renderNote && (
+      {id && note && note.id && (
         <div>
           <input
-            value={props.selectedNote.title}
+            value={note.title}
             onChange={(event) =>
               dispatch(
                 updateNote({
@@ -28,7 +31,7 @@ function NotePad(props) {
             }
           />
           <textarea
-            value={props.selectedNote.body}
+            value={note.body}
             onChange={(event) =>
               dispatch(
                 updateNote({
