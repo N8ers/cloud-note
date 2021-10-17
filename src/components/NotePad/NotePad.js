@@ -10,13 +10,15 @@ import "./NotePad.css";
 function NotePad(props) {
   const dispatch = useDispatch();
   const { id } = useParams();
+  let routeId = parseInt(id);
 
   const note = useSelector((state) =>
-    state.notes.notes.find((note) => note.id === parseInt(id))
+    state.notes.notes.find((note) => note.id === routeId)
   );
 
   return (
     <div className="NotePad">
+      <h1>id: {id}</h1>
       {id && note && note.id && (
         <div>
           <input
@@ -25,7 +27,7 @@ function NotePad(props) {
               dispatch(
                 updateNote({
                   title: event.target.value,
-                  id: props.selectedNote.id,
+                  id: routeId,
                 })
               )
             }
@@ -36,7 +38,7 @@ function NotePad(props) {
               dispatch(
                 updateNote({
                   body: event.target.value,
-                  id: props.selectedNote.id,
+                  id: routeId,
                 })
               )
             }
