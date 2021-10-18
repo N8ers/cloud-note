@@ -1,9 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+import { getNotes } from "../../helpers/axios";
+
 import { useParams } from "react-router-dom";
 
-import { updateNote } from "../Notes/notesSlice";
+import { updateNote, fetchNotes } from "../Notes/notesSlice";
 
 import "./NotePad.css";
 
@@ -18,7 +20,8 @@ function NotePad(props) {
 
   return (
     <div className="NotePad">
-      <h1>id: {id}</h1>
+      <button onClick={getNotes}>Fetch Notes with Helper</button>
+      <button onClick={() => dispatch(fetchNotes)}>Fetch Notes</button>
       {id && note && note.id && (
         <div>
           <input
