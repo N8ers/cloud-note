@@ -11,7 +11,7 @@ function NoteList(props) {
           <NotePreview
             id={note.id}
             title={note.title}
-            body={note.body}
+            note={note.note}
             key={"note-" + index}
           />
         );

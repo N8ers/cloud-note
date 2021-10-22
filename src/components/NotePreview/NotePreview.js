@@ -6,12 +6,12 @@ import "./NotePreview.css";
 function NotePreview(props) {
   const [trucatedText, setTruncatedText] = useState("");
   useEffect(() => {
-    let updatedBody = props.body;
-    if (props.body.length > 36) {
-      updatedBody = props.body.substring(0, 36) + "...";
+    let updatedNote = props.note;
+    if (props?.note?.length > 36) {
+      updatedNote = props.note.substring(0, 36) + "...";
     }
-    setTruncatedText(updatedBody);
-  }, [props.body]);
+    setTruncatedText(updatedNote);
+  }, [props.note]);
 
   return (
     <div className="NotePreview">
