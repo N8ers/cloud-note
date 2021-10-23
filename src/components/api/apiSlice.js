@@ -6,7 +6,7 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     getNotes: builder.query({
       // baseUrl + '/notes'
-      query: () => "/notes",
+      query: () => "/notes/slow",
     }),
   }),
 });
