@@ -13,16 +13,17 @@ function NotePad(props) {
   let routeId = parseInt(id);
 
   // WE AREN'T STORING THE NOTES IN STATE ANYMORE.... SO SHOULD WE???
-  const note = useSelector((state) =>
-    state.notes.notes.find((note) => note.id === routeId)
-  );
+  // const note = useSelector((state) =>
+  //   state.notes.notes.find((note) => note.id === routeId)
+  // );
 
   return (
     <div className="NotePad">
-      {id && note && note.id && (
+      {JSON.stringify(props.note)}
+      {/* {props.note && props.note.id && (
         <div>
           <input
-            value={note.title}
+            value={props.note.title}
             onChange={(event) =>
               dispatch(
                 updateNote({
@@ -33,7 +34,7 @@ function NotePad(props) {
             }
           />
           <textarea
-            value={note.body}
+            value={props.note.body}
             onChange={(event) =>
               dispatch(
                 updateNote({
@@ -44,7 +45,7 @@ function NotePad(props) {
             }
           ></textarea>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

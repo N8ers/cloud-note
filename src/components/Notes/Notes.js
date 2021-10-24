@@ -18,7 +18,7 @@ function Notes() {
     content = (
       <div className="notes-container">
         <NoteList className="notes-list" notes={notes} />
-        <NotePad className="note-pad" />
+        <NotePad className="note-pad" note={notes[0]} />
       </div>
     );
   }
