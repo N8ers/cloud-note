@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useGetNotesQuery } from "../api/apiSlice";
 import { useParams } from "react-router-dom";
@@ -9,26 +9,32 @@ import NoteList from "../NoteList/NoteList.js";
 import NotePad from "../NotePad/NotePad.js";
 
 function Notes() {
-  // const { notes } = useSelector((state) => state.notes);
   const { data: notes, isLoading, isSuccess } = useGetNotesQuery();
   const { id } = useParams();
-  let routeId = parseInt(id);
-  let selectedNote = () => {
-    if (routeId) {
+
+  const [selectedNote, setSelectedNote] = useState(null);
+
+  function setDisplayedNote() {
+    let routeId = parseInt(id);
+    if (selectedNote && selectedNote.id !== routeId) {
       let [note] = notes.filter((note) => note.id === routeId);
-      return JSON.stringify(note);
+      setSelectedNote(note);
+
+      console.log("setDisplayedNote! ", routeId, note);
     }
-    return null;
-  };
+  }
 
   let content;
   if (isLoading) {
     content = <h1>hol up...</h1>;
   } else if (isSuccess) {
+    if (parseInt(id)) {
+      setDisplayedNote();
+    }
     content = (
       <div className="notes-container">
         <NoteList className="notes-list" notes={notes} />
-        <NotePad className="note-pad" note={selectedNote()} />
+        <NotePad className="note-pad" note={selectedNote} />
       </div>
     );
   }
