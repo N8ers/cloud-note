@@ -14,7 +14,7 @@ function NotePreview(props) {
   }, [props.note]);
 
   return (
-    <div className="NotePreview">
+    <div className="NotePreview" onClick="props.changeSelectedNote()">
       <Link to={`/${props.id}`} className="link-container">
         <div>{props.title}</div>
         <p>{trucatedText}</p>

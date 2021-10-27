@@ -24,6 +24,10 @@ function Notes() {
     }
   }
 
+  function changeSelectedNote() {
+    alert("changeSelectedNote");
+  }
+
   let content;
   if (isLoading) {
     content = <h1>hol up...</h1>;
@@ -33,7 +37,11 @@ function Notes() {
     }
     content = (
       <div className="notes-container">
-        <NoteList className="notes-list" notes={notes} />
+        <NoteList
+          className="notes-list"
+          notes={notes}
+          changeSelectedNote={changeSelectedNote}
+        />
         <NotePad className="note-pad" note={selectedNote} />
       </div>
     );
