@@ -24,9 +24,9 @@ function Notes() {
     }
   }
 
-  function changeSelectedNote() {
-    alert("changeSelectedNote");
-  }
+  const changeSelectedNote = () => {
+    console.log("changeSelectedNote");
+  };
 
   let content;
   if (isLoading) {

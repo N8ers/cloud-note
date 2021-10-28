@@ -13,6 +13,7 @@ function NoteList(props) {
             title={note.title}
             note={note.note}
             key={"note-" + index}
+            changeSelectedNote={props.changeSelectedNote}
           />
         );
       })}
