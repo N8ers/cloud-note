@@ -13,8 +13,12 @@ function NotePreview(props) {
     setTruncatedText(updatedNote);
   }, [props.note]);
 
+  const handleSelectedNoteChange = () => {
+    props.changeSelectedNote(props.id);
+  };
+
   return (
-    <div className="NotePreview" onClick={props.changeSelectedNote}>
+    <div className="NotePreview" onClick={handleSelectedNoteChange}>
       <Link to={`/${props.id}`} className="link-container">
         <div>{props.title}</div>
         <p>{trucatedText}</p>

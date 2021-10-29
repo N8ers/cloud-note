@@ -24,8 +24,9 @@ function Notes() {
     }
   }
 
-  const changeSelectedNote = () => {
-    console.log("changeSelectedNote");
+  const changeSelectedNote = (noteId) => {
+    let selectedNote = notes.filter((note) => note.id === noteId);
+    setSelectedNote(selectedNote);
   };
 
   let content;
