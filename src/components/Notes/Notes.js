@@ -9,7 +9,7 @@ import NoteList from "../NoteList/NoteList.js";
 import NotePad from "../NotePad/NotePad.js";
 
 function Notes() {
-  const { data: notes, isLoading, isSuccess } = useGetNotesQuery();
+  const { data: notes, isLoading, isSuccess, isError } = useGetNotesQuery();
   const { id } = useParams();
 
   const [selectedNote, setSelectedNote] = useState(null);
@@ -32,6 +32,8 @@ function Notes() {
   let content;
   if (isLoading) {
     content = <h1>hol up...</h1>;
+  } else if (isError) {
+    content = <h1>ERROR LOADING, check if API server is running</h1>;
   } else if (isSuccess) {
     if (parseInt(id)) {
       setDisplayedNote();
