@@ -20,7 +20,7 @@ function NotePad(props) {
   return (
     <div className="NotePad">
       {JSON.stringify(props.note)}
-      {/* {props.note && props.note.id && (
+      {props.note && props.note.id && (
         <div>
           <input
             value={props.note.title}
@@ -34,18 +34,18 @@ function NotePad(props) {
             }
           />
           <textarea
-            value={props.note.body}
+            value={props.note.note}
             onChange={(event) =>
               dispatch(
                 updateNote({
-                  body: event.target.value,
+                  note: event.target.value,
                   id: routeId,
                 })
               )
             }
           ></textarea>
         </div>
-      )} */}
+      )}
     </div>
   );
 }
