@@ -1,7 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-
-import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import { updateNote } from "../Notes/notesSlice";
 
@@ -9,17 +7,9 @@ import "./NotePad.css";
 
 function NotePad(props) {
   const dispatch = useDispatch();
-  const { id } = useParams();
-  let routeId = parseInt(id);
-
-  // WE AREN'T STORING THE NOTES IN STATE ANYMORE.... SO SHOULD WE???
-  // const note = useSelector((state) =>
-  //   state.notes.notes.find((note) => note.id === routeId)
-  // );
 
   return (
     <div className="NotePad">
-      {JSON.stringify(props.note)}
       {props.note && props.note.id && (
         <div>
           <input
@@ -28,7 +18,7 @@ function NotePad(props) {
               dispatch(
                 updateNote({
                   title: event.target.value,
-                  id: routeId,
+                  id: props.note.id,
                 })
               )
             }
@@ -39,7 +29,7 @@ function NotePad(props) {
               dispatch(
                 updateNote({
                   note: event.target.value,
-                  id: routeId,
+                  id: props.note.id,
                 })
               )
             }
