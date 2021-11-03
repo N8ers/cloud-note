@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
 import { useGetNotesQuery } from "../api/apiSlice";
 import { useParams } from "react-router-dom";
 
@@ -16,11 +15,9 @@ function Notes() {
 
   function setDisplayedNote() {
     let routeId = parseInt(id);
-    if (selectedNote && selectedNote.id !== routeId) {
+    if (!selectedNote || selectedNote.id !== routeId) {
       let [note] = notes.filter((note) => note.id === routeId);
       setSelectedNote(note);
-
-      console.log("setDisplayedNote! ", routeId, note);
     }
   }
 
@@ -35,7 +32,7 @@ function Notes() {
   } else if (isError) {
     content = <h1>ERROR LOADING, check if API server is running</h1>;
   } else if (isSuccess) {
-    if (parseInt(id)) {
+    if (id) {
       setDisplayedNote();
     }
     content = (
