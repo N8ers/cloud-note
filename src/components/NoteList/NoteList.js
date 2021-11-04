@@ -8,8 +8,15 @@ function NoteList(props) {
     props.changeSelectedNote(noteId);
   };
 
+  const handleNewNote = () => {
+    props.addNewNote();
+  };
+
   return (
     <div className="NoteList">
+      <div onClick={handleNewNote} className="newNote">
+        + New Note
+      </div>
       {props.notes.map((note, index) => {
         return (
           <NotePreview

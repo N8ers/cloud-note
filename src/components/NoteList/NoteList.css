@@ -2,3 +2,13 @@
   margin-top: 75px;
   border: 1px solid white;
 }
+
+.newNote {
+  text-align: right;
+  color: white;
+  border: 1px solid white;
+}
+
+.newNote:hover {
+  cursor: pointer;
+}

@@ -26,6 +26,12 @@ function Notes() {
     setSelectedNote(selectedNote);
   };
 
+  const handleNewNote = () => {
+    // set url to 'new'
+    // update state to have new empty note
+    // force to go to new note
+  };
+
   let content;
   if (isLoading) {
     content = <h1>hol up...</h1>;
@@ -41,6 +47,7 @@ function Notes() {
           className="notes-list"
           notes={notes}
           changeSelectedNote={changeSelectedNote}
+          handleNewNote={handleNewNote}
         />
         <NotePad className="note-pad" note={selectedNote} />
       </div>
