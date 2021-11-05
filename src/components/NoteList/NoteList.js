@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./NoteList.css";
 import NotePreview from "../NotePreview/NotePreview.js";
@@ -8,15 +9,12 @@ function NoteList(props) {
     props.changeSelectedNote(noteId);
   };
 
-  const handleNewNote = () => {
-    props.addNewNote();
-  };
-
   return (
     <div className="NoteList">
-      <div onClick={handleNewNote} className="newNote">
-        + New Note
-      </div>
+      <Link to={`/new`} className="link-container">
+        <div className="newNote">+ New Note</div>
+      </Link>
+
       {props.notes.map((note, index) => {
         return (
           <NotePreview
