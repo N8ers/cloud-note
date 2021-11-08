@@ -26,19 +26,13 @@ function Notes() {
     setSelectedNote(selectedNote);
   };
 
-  const handleNewNote = () => {
-    // set url to 'new'
-    // update state to have new empty note
-    // force to go to new note
-  };
-
   let content;
   if (isLoading) {
     content = <h1>hol up...</h1>;
   } else if (isError) {
     content = <h1>ERROR LOADING, check if API server is running</h1>;
   } else if (isSuccess) {
-    if (id) {
+    if (id && id !== "new") {
       setDisplayedNote();
     }
     content = (
@@ -47,11 +41,18 @@ function Notes() {
           className="notes-list"
           notes={notes}
           changeSelectedNote={changeSelectedNote}
-          handleNewNote={handleNewNote}
         />
         <NotePad className="note-pad" note={selectedNote} />
       </div>
     );
+
+    if (id === "new") {
+      content = (
+        <div>
+          <h1 style={{ color: "white" }}>i am new note!</h1>
+        </div>
+      );
+    }
   }
 
   return <div>{content}</div>;
