@@ -6,6 +6,7 @@ import "./Notes.css";
 
 import NoteList from "../NoteList/NoteList.js";
 import NotePad from "../NotePad/NotePad.js";
+import NewNote from "../NewNote/NewNote.js";
 
 function Notes() {
   const { data: notes, isLoading, isSuccess, isError } = useGetNotesQuery();
@@ -50,6 +51,7 @@ function Notes() {
       content = (
         <div>
           <h1 style={{ color: "white" }}>i am new note!</h1>
+          <NewNote />
         </div>
       );
     }
