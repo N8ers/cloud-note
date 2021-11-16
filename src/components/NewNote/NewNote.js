@@ -4,20 +4,14 @@ const NewNote = (props) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
-  function updateTitle(event) {}
-  function updateBody(event) {}
-
   return (
     <div>
       <button>save</button>
       <button>cancel</button>
-      <input
-        value={title}
-        onChange={(event) => updateTitle(event.target.value)}
-      />
+      <input value={title} onChange={(event) => setTitle(event.target.value)} />
       <textarea
         value={body}
-        onChange={(event) => updateBody(event.target.value)}
+        onChange={(event) => setBody(event.target.value)}
       ></textarea>
     </div>
   );
