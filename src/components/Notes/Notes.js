@@ -43,18 +43,13 @@ function Notes() {
           notes={notes}
           changeSelectedNote={changeSelectedNote}
         />
-        <NotePad className="note-pad" note={selectedNote} />
+        {id === "new" ? (
+          <NewNote className="note-pad" />
+        ) : (
+          <NotePad className="note-pad" note={selectedNote} />
+        )}
       </div>
     );
-
-    if (id === "new") {
-      content = (
-        <div>
-          <h1 style={{ color: "white" }}>i am new note!</h1>
-          <NewNote />
-        </div>
-      );
-    }
   }
 
   return <div>{content}</div>;
