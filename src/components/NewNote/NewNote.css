@@ -1,0 +1,17 @@
+.NotePad {
+  margin-top: 75px;
+  padding: 20px;
+  background-color: white;
+  border: 15px solid #f77f00;
+  color: #003049;
+}
+
+textArea {
+  width: 100%;
+  height: 300px;
+}
+
+input {
+  height: 30px;
+  font-size: large;
+}
