@@ -8,8 +8,10 @@ const NewNote = (props) => {
 
   return (
     <div className="NotePad">
-      <button>save</button>
-      <button>cancel</button>
+      <div className="buttonContainer">
+        <button className="saveBtn">save</button>
+        <button className="cancelBtn">cancel</button>
+      </div>
       <input value={title} onChange={(event) => setTitle(event.target.value)} />
       <textarea
         value={body}

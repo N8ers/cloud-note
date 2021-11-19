@@ -15,3 +15,26 @@ input {
   height: 30px;
   font-size: large;
 }
+
+.buttonContainer {
+  width: 120px;
+  margin-left: auto;
+  margin-bottom: 5px;
+}
+
+.saveBtn {
+  padding: 5px;
+  font-size: large;
+  border: none;
+  color: white;
+  background-color: #003049;
+  margin-right: 5px;
+}
+
+.cancelBtn {
+  padding: 5px;
+  font-size: large;
+  border: none;
+  color: white;
+  background-color: #f77f00;
+}
