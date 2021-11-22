@@ -41,9 +41,16 @@ export const notesSlice = createSlice({
         return note;
       });
     },
+    deleteNote: (state, action) => {
+      state.notes = state.notes.map((note) => {
+        if (note.id !== action.payload.id) {
+          return note;
+        }
+      });
+    },
   },
 });
 
-export const { updateNote } = notesSlice.actions;
+export const { updateNote, deleteNote } = notesSlice.actions;
 
 export default notesSlice.reducer;
