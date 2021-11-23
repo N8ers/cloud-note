@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { updateNote } from "../Notes/notesSlice";
+import { updateNote, deleteNote } from "../Notes/notesSlice";
 
 import "./NotePad.css";
 

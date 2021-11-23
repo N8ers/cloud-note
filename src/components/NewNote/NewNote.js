@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
+import { useAddNoteMutation } from "../api/apiSlice";
+
 import "./NewNote.css";
 
 const NewNote = (props) => {
@@ -11,6 +13,7 @@ const NewNote = (props) => {
 
   function handleSave() {
     console.log("Saving: ", title, body);
+    useAddNoteMutation({ title, body });
   }
 
   function handleCancel() {
